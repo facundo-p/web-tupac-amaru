@@ -9,7 +9,7 @@ emotiva, y que quien llega tenga ganas de aportar para que siga creciendo.
 
 ## Estado
 
-Prototipo funcional (estático, un solo archivo). Contenido mayormente de
+Prototipo funcional (estático, sin build). Contenido mayormente de
 ejemplo — ver [`docs/CONTENIDO.md`](docs/CONTENIDO.md) para qué es real y qué
 falta reemplazar.
 
@@ -17,8 +17,10 @@ falta reemplazar.
 
 ```
 web-tupac-amaru/
-├── index.html              Landing completa (HTML + CSS + JS inline)
+├── index.html              Landing completa (HTML + JS inline)
 ├── assets/
+│   ├── css/
+│   │   └── styles.css      Todos los estilos
 │   └── images/             Fotos reales del espacio
 │       ├── hero-huerta.jpeg   Hero (recortada del original)
 │       ├── huerta-1.jpeg      Canteros de la huerta
@@ -38,13 +40,41 @@ dependencias. Las fuentes se cargan desde Google Fonts (necesita conexión).
 
 ## Stack
 
-HTML + CSS + JavaScript vanilla, sin frameworks ni build. Pensado para poder
-publicarse gratis en cualquier hosting estático (Netlify, Cloudflare Pages,
-GitHub Pages, Vercel).
+HTML + CSS + JavaScript vanilla, sin frameworks ni build. El CSS vive en
+`assets/css/styles.css`; el poco JS que hay está inline en `index.html`.
+
+## Deploy
+
+Dos entornos, cada uno atado a una rama. No hay build: se publican los
+archivos tal cual están en el repo.
+
+| Rama | Entorno | Dónde | URL |
+|---|---|---|---|
+| `staging` | Previa | GitHub Pages | https://facundo-p.github.io/web-tupac-amaru/ |
+| `main` | Producción | Cloudflare Pages | https://latupac.org |
+
+Flujo de trabajo:
+
+```bash
+git switch staging
+# ... cambios, commit ...
+git push origin staging          # se publica solo en la URL de GitHub
+
+# cuando está aprobado, se promueve a producción:
+git switch main
+git merge --ff-only staging
+git push origin main             # Cloudflare deploya solo
+```
+
+`index.html` incluye `<link rel="canonical" href="https://latupac.org/">` para
+que la previa no compita con producción en buscadores. Es el mismo archivo en
+las dos ramas, así que no hay que tocarlo al promover.
 
 ## Pendientes principales
 
-- Reemplazar contenido de ejemplo por el real (números, hitos, metas, alias).
+- Reemplazar contenido de ejemplo por el real (hitos 2011/2017, metas, alias).
 - Definir método de donación real (ver `docs/DECISIONES-DISENO.md`).
 - Sumar más fotos para la galería.
 - Datos de contacto y redes reales en el footer.
+- Sumar `meta description` y etiquetas Open Graph: hoy el sitio se comparte por
+  WhatsApp sin título, descripción ni imagen de preview.

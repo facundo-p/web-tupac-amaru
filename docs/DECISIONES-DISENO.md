@@ -70,11 +70,24 @@ se luce.
 
 ## Decisiones técnicas
 
-- **Un solo archivo** `index.html` con HTML + CSS + JS inline. Sin build, sin
-  dependencias (salvo Google Fonts por CDN). Prioriza simplicidad y hosting
-  gratuito.
-- Pensado para **hosting estático gratuito** (Netlify / Cloudflare Pages /
-  GitHub Pages / Vercel). Cuando se elija, documentar acá.
+- **Sin build ni dependencias** (salvo Google Fonts por CDN). El CSS se separó a
+  `assets/css/styles.css`; el JS que queda es mínimo e inline. Prioriza
+  simplicidad: cualquiera puede abrir el repo y entender qué toca.
+- **Hosting elegido: Cloudflare Pages para producción, GitHub Pages para la
+  previa.** La rama `main` se publica en `latupac.org` (dominio registrado en
+  Cloudflare, así que el DNS y el certificado los maneja la misma cuenta) y la
+  rama `staging` en `facundo-p.github.io/web-tupac-amaru/`.
+
+  Por qué así: se probó tener un repo aparte sólo para hostear
+  (`huerta-tupac-amaru.github.io`) y terminó siendo dos repos con la misma
+  historia que había que sincronizar a mano. Un solo repo con dos ramas
+  atadas a dos entornos hace explícito qué está publicado dónde, y promover a
+  producción es un `merge --ff-only`.
+
+  La integración de Cloudflare es por Git (no por CI): no hay secrets ni
+  workflows que mantener, y si el proyecto cambia de manos hay menos piezas
+  que explicar. Los "preview branches" de Cloudflare están apagados a
+  propósito para que la previa viva en un solo lugar.
 
 ## Cosas abiertas / a decidir
 
