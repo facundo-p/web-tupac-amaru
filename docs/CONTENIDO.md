@@ -8,6 +8,11 @@ queda claro qué es real y qué hay que reemplazar antes de publicar.
 - **Historia y filosofía** ("Sobre nosotros") — basada en el texto que aportó el
   espacio. Revisar/ajustar redacción final.
 - **Cita de Eduardo Galeano** — real y correctamente atribuida.
+- **"En números"** — `+25 años`, `1 ha`, `0 venenos`. Se quitó `30 familias`
+  porque el dato no estaba confirmado; la grilla quedó en tres números.
+- **Primer hito de la línea de tiempo (2001)** — la apertura de la biblioteca
+  junto a las asambleas populares y el "que se vayan todos".
+- **WhatsApp de contacto** (sección "Sumate") — `+54 9 11 6132-4455`.
 - **Fotos** en `assets/images/`:
   - `hero-huerta.jpeg` — reunión comunitaria con wiphala (recortada).
   - `huerta-1.jpeg` — canteros de la huerta.
@@ -17,10 +22,8 @@ queda claro qué es real y qué hay que reemplazar antes de publicar.
 
 ## Placeholder (reemplazar por lo real)
 
-- **"En números"** — `+20 años`, `1 ha`, `30 familias`, `0 venenos`. El de años
-  y la hectárea son reales; **verificar cantidad de familias** y ajustar.
-- **Línea de tiempo ("De dónde venimos")** — años (2003 / 2011 / 2017) y textos
-  de los hitos son inventados. Reemplazar por hitos reales del espacio,
+- **Línea de tiempo ("De dónde venimos")** — los hitos 2011 y 2017, años y
+  textos, siguen siendo inventados. Reemplazar por hitos reales del espacio,
   incluidas las acciones de activismo y donaciones en distintos puntos del país.
 - **"En qué se usa tu aporte"** — las tres metas (terminar el SUM, semillas y
   plantines, sostener la biblioteca) y sus montos/porcentajes son de ejemplo.
